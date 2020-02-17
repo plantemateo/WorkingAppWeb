@@ -1,0 +1,63 @@
+<div id="lists-view" style="overflow: auto; width: 100%;">
+    <div id="sidebar-wrapper" ng-class="sidebarVisible">
+        <ul class="sidebar-nav">
+            <a style="box-shadow: 2px 2px 1px #34495e;" id="menu-close" class="btn btn-default pull-right toggle"  ng-click="toggleSidebar()"><i
+                   class="glyphicon glyphicon-new-window"></i></a>
+            <li class="sidebar-brand" >
+                <a style="font-style:italic;font-size:22px;text-shadow:0.5px 0.5px 1px black;color: #{{colorFondo}};">{{tablero.titulo}}</a>
+                <a style="border: 0.5px inset #9B9B9B"></a>
+            </li>
+            <br>
+           	<li ng-click="changeBoardConfig()">
+                <a class="fa fa-cogs">&nbsp;Cambiar configuracion del tablero</a>
+            </li>
+             <br>
+            <li ng-click="openMembers()">
+                <a class="fa fa-user-plus">&nbsp;Anadir/Quitar usuarios</a>
+            </li>
+            <br>
+            <li ng-click="deleteBoard()">
+                <a style="color: #e22200; font-weight: bold;" class="fa fa-trash">&nbsp;Eliminar tablero</a>
+            </li>
+        </ul> 	
+    </div>
+    <!-- Listas -->
+    <div class="list-section">
+        <div class="current-lists list-dropzone" dnd-list="listas" dnd-allowed-types="['list']"
+            dnd-horizontal-list="true">
+            <div ng-repeat="list in listas" class="col-md-2 list" dnd-draggable="list" dnd-type="'list'"
+                dnd-effect-allowed="move" dnd-moved="onMovedList($index)">
+                <div class="well well-sm" style="background-color: #E8ECF2;box-shadow: 3px 3px 1px #34495e;border: 1px inset #7f8c8d;">
+                    <label ng-hide="editingList(list)" ng-dblclick="editList(list)" style="width: 100%;">
+                        <strong style="font-style:oblique;">{{list.titulo}}</strong>
+                        <div class="btn btn-xs btn-default pull-right" ng-click="deleteList(list)"><i
+                                class="fa fa-trash"></i></div>
+                    </label>
+                    <input ng-show="editingList(list)" ng-model="list.titulo" ng-blur="doneEditing(list)" autofocus />
+                    <div dnd-list="list.tarjetas" class="card-dropzone" dnd-allowed-types="['card']"
+                        dnd-inserted="onInsertedCard(index, list, item)">
+                        <div ng-repeat="card in list.tarjetas" class="well well-sm card" dnd-draggable="card"
+                            dnd-type="'card'" dnd-effect-allowed="move">
+                            <div ng-click="openCard(list, card)">
+                                {{card.titulo}}
+                                <br>
+                                <i class="fa fa-align-left" style="color: #797979;" ng-show="card.cuerpo != ''"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well-sm new-card" ng-click="addCard(list)">
+                        <i class="fa fa-plus-circle" style="font-size: 15px;"></i>
+                        Añadir una tarjeta
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add lista -->
+        <div class="col-md-2 list current-lists">
+            <div class="well well-sm new-list" ng-click="addList()">
+                <i class="fa fa-plus-circle" style="font-size: 15px;"></i>
+                Añadir una lista
+            </div>
+        </div>
+    </div>
+</div>

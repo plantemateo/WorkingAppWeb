@@ -1,0 +1,124 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancelar()">&times;</button>
+		<h4 class="modal-title">{{mensaje}} personal</h4>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal" role="form" name="formPersonal">
+			<!-- Apellido y nombre -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Apellido y nombre (*)</label>
+				<div class="col-sm-7">
+					<input type="text" name="inputNombre" class="form-control" ng-model="personal.nombreYApellido"
+						ng-model-options="{ debounce: 500 }" required />
+
+					<!-- Errores -->
+					<span style="color:red"
+						ng-show="formPersonal.inputNombre.$dirty && formPersonal.inputNombre.$invalid">
+						<span ng-show="formPersonal.inputNombre.$error.required">El nombre es obligatorio.</span>
+					</span>
+				</div>
+			</div>
+
+			<!-- DNI -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">DNI (*)</label>
+				<div class="col-sm-7">
+					<input type="text" name="inputDni" class="form-control" ng-model="personal.dni"
+						ng-model-options="{ debounce: 500 }" required minlength="8" maxlength="9" pattern="^\d+$" />
+
+					<!-- Errores -->
+					<span style="color:red" ng-show="formPersonal.inputDni.$dirty && formPersonal.inputDni.$invalid">
+						<span ng-show="formPersonal.inputDni.$error.pattern">Un DNI solo puede contener numeros.</span>
+						<span ng-show="formPersonal.inputDni.$error.required">El DNI es obligatorio.</span>
+						<span
+							ng-show="formPersonal.inputDni.$error.minlength && !formPersonal.inputDni.$error.pattern">El
+							DNI debe tener por lo menos 8
+							caracteres</span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Direccion -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Direccion</label>
+				<div class="col-sm-7">
+					<input type="text" class="form-control" ng-model="personal.direccion" />
+				</div>
+			</div>
+
+			<!-- Mail -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Mail (*)</label>
+				<div class="col-sm-7">
+					<input type="email" name="inputMail" class="form-control" ng-model="personal.mail"
+						ng-model-options="{ debounce: 500 }" required />
+
+					<!-- Errores -->
+					<span style="color:red" ng-show="formPersonal.inputMail.$dirty && formPersonal.inputMail.$invalid">
+						<span ng-show="formPersonal.inputMail.$error.required">El mail es obligatorio.</span>
+						<span ng-show="formPersonal.inputMail.$error.email">Ingrese un mail valido.</span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Especialidades -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Especialidades (*)</label>
+				<div class="col-sm-7">
+					<div class="well well-sm">
+						<div ng-repeat="esp in listaEspecialidades">
+							<label>
+								<input type="checkbox" checklist-model="especialidades" checklist-value="esp"
+									ng-change="makeDirty()">
+								{{esp.especialidad}}
+							</label>
+						</div>
+						<span style="color:red" ng-show="!especialidades.length && dirtyEspecialidades">
+							Debe elegir al menos una especialidad.
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Telefonos -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Telefonos</label>
+				<div class="col-sm-7">
+					<div class="well well-sm">
+						<fieldset ng-repeat="tel in telefonos track by $index">
+							<div class="row">
+								<div class="col-sm-9">
+									<input type="text" class="form-control" ng-model="tel.telefono" />
+								</div>
+								<div class="col-sm-3">
+									<button type="button" class="btn btn-danger btn-sm"
+										ng-click="removeTelefono($index)"><span
+											class="glyphicon glyphicon-minus"></span></button>
+								</div>
+							</div>
+							<br>
+						</fieldset>
+						<button type="button" class="btn btn-success" ng-click="addTelefono()"><span
+								class="glyphicon glyphicon-plus"></span> Add</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Disponible -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Disponible</label>
+				<div class="col-sm-7">
+					<toggle ng-model="personal.disponible" on-class="btn-success" off-class="btn-danger" on="Disponible"
+						off="No disponible"> </toggle>
+				</div>
+			</div>
+		</form>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+			<button type="button" class="btn btn-primary"
+				ng-disabled="!especialidades.length || formPersonal.inputMail.$invalid || formPersonal.inputDni.$invalid || formPersonal.inputNombre.$invalid"
+				ng-click="guardar()">Guardar</button>
+		</div>
+	</div>
+</div><!-- /.modal-content -->

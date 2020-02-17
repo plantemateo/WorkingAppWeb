@@ -1,0 +1,103 @@
+<div id="card-modal" style="border: 3px inset #7f8c8d;">
+    <div class="modal-header">
+        <div ng-hide="editingCardTitle" ng-dblclick="editingCardTitle = true">
+            <button type="button" class="close" ng-click="cancelar()">&times;</button>
+            <h3 class="modal-title" style="font-style: italic;">{{tarjeta.titulo}}
+                <div class="btn btn-xs btn-default" ng-click="deleteCard()"><i class="fa fa-trash"></i></div>
+            </h3>
+        </div>
+        <input ng-show="editingCardTitle" ng-model="tarjeta.titulo" ng-blur="editCardTitle()" autofocus />
+    </div>
+    <div class="modal-body">
+        <!-- Miembros -->
+        <div class="members-section">
+            <div style="font-size: 20px" class="members-title">
+ 			<i class="fa fa-users"></i>
+ 			Miembros asignados
+            </div>
+            <div class="leave-space">
+            <span class="member" ng-repeat="member in tarjeta.miembrosAsignados"
+                uib-popover-template="membersPopoverTemplateUrl" popover-trigger="'outsideClick'"
+                popover-placement="bottom-left" popover-is-open="isPopoverOpen">
+                {{member.username}}
+            </span>
+            <span ng-show="tarjeta.miembrosAsignados.length != miembrosTablero.length" class="member add-member">
+                <i uib-popover-template="newMemberPopoverTemplateUrl" popover-trigger="'outsideClick'"
+                    popover-placement="bottom-left" class="fa fa-plus"></i>
+            </span>
+            </div>
+        </div>
+
+        <!-- Descripcion -->
+        <div class="description-title">
+            <i class="fa fa-list-ul"></i>
+            Descripción
+        </div>
+        <div class="leave-space body" ng-class="{'body-empty': tarjeta.cuerpo == ''}">
+            <!-- Descripcion actual o Placeholder -->
+            <div ng-hide="editingCardBody" ng-dblclick="editingCardBody = true">
+                <div ng-hide="tarjeta.cuerpo == ''">
+                    <pre>{{tarjeta.cuerpo}}</pre>
+                </div>
+                <div style="color: black;" ng-show="tarjeta.cuerpo == ''">Añadir una descripción más detallada...</div>
+            </div>
+            <!-- Editando descripcion -->
+            <div ng-show="editingCardBody" class="edit-multiline-btn">
+                <textarea wrap="hard" ng-init="tempCuerpo = tarjeta.cuerpo" ng-model="tempCuerpo" autofocus></textarea>
+                <br>
+                <button class="save-btn btn btn-sm btn-success" ng-disabled="tempCuerpo == tarjeta.cuerpo"
+                    ng-click="editBody()">Guardar</button>
+                <button class="cancel-btn btn btn-sm" ng-click="cancelEditBody()"><i class="fa fa-remove"></i></button>
+            </div>
+        </div>
+        <!-- Comentarios -->
+        <div style="font-size: 20px;">
+            <i class="fa fa-commenting"></i>
+            Comentarios
+        </div>
+        <div class="leave-space comment-section">
+            <!-- Comentario nuevo -->
+            <div class="well well-sm comment new-comment">
+                <div ng-hide="makeNewComment || newComment != ''" ng-click="makeNewComment = true" style="color: black;">
+                    Escriba un comentario...
+                </div>
+                <div ng-show="makeNewComment || newComment != ''">
+                    <textarea wrap="hard" placeholder="Escriba un comentario..." ng-model="newComment"
+                        ng-blur="makeNewComment = false" ng-focus="makeNewComment = true" autofocus></textarea>
+                    <br>
+                    <button ng-disabled="newComment == ''" class="btn btn-sm btn-block btn-success" style="width: auto;"
+                        ng-click="addComment()">Guardar</button>                
+                </div>
+            </div>
+            <!-- Comentarios ya puestos -->
+            <div ng-repeat="com in comentarios">
+                <strong>{{com.creadoPor.username}}:</strong>
+                <em>{{timeSince(com.fechaCreacion)}}</em>
+                <br>
+                <div class="comment">
+                    <div ng-hide="editingComment(com)">
+                        <div class="well well-sm">
+                            {{com.cuerpo}}
+                        </div>
+                        <span ng-show="com.creadoPor.idUser == currentLoggedUser.idUser">
+                            <a ng-click="editComment(com)"><u>Editar</u></a> - <a
+                                ng-click="deleteComment(com)"><u>Eliminar</u></a>
+                        </span>
+                    </div>
+                    <div ng-show="editingComment(com)" style="width: 100%;">
+                        <div class="edit-comment well well-sm">
+                            <textarea wrap="hard" ng-init="com.tempCuerpo = com.cuerpo" ng-model="com.tempCuerpo"
+                                autofocus></textarea>
+                            <br>
+                            <button ng-disabled="com.tempCuerpo == '' || com.tempCuerpo == com.cuerpo"
+                                class="btn btn-sm btn-success" style="width: auto;"
+                                ng-click="updateComment(com)">Guardar</button>
+                            <button class="btn btn-sm" style="width: auto;" ng-click="cancelEditComent(com)"><i
+                                    class="fa fa-remove"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

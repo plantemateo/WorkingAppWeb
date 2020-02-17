@@ -1,0 +1,598 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+
+.iframeYoutube{
+	border: 4px inset #7f8c8d;
+	box-shadow: 0.5px 0.5px 2px #34495e;
+}
+
+.loginData{
+	text-align: center; 
+	color: #3A61C5;
+	text-shadow:0.5px 0.5px 1px #3A61C5;
+}
+
+input::placeholder {
+  color: black;
+  font-size: 15px;
+}
+input{
+	width: 300px;
+  	border: 1px inset #7f8c8d;
+  	box-shadow: 2px 2px 1px #34495e;
+  	font: 300 14px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
+}
+
+.center-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.fondo {
+  background-image: url(images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fondoYoutube {
+  background-image: url(images/flechFondo.png);
+  background-repeat: no-repeat;
+}
+
+.fondoFlechas2 {
+  background-image: url(images/flechaFondo.png);
+  background-repeat: no-repeat;
+
+}
+
+.loginFondo {
+  background-image: url(images/logoLogin.jpg);
+  background-repeat: no-repeat;
+  background-size: 250px;
+}
+
+.styletext {
+  color: #323792;
+  font-style: normal;
+  font-size: 32px;
+  text-shadow:0.5px 0.5px 1px black;
+}
+
+body.ng-scope div.modal-backdrop {
+  height: auto;
+}
+
+body.ng-scope div.modal {
+  height: auto;
+}
+
+body.ng-scope #boardMembersModal fieldset {
+  border: 0px;
+}
+
+body.ng-scope #boardMembersModal .member-section {
+  margin-top: 20px;
+}
+
+body.ng-scope #boardMembersModal .member-section .leave-space {
+  margin-left: 25px;
+}
+
+body.ng-scope #boardMembersModal .member-section .leave-space div.member {
+  margin-bottom: 5px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+body.ng-scope #boardMembersModal .member-section .leave-space div.member a {
+  padding: 6px;
+  border-radius: 4px;
+  background-color: #77777733;
+  padding: 5px;
+  color: #000000;
+  display: block;
+  text-decoration: none;
+}
+
+body.ng-scope #boardMembersModal .member-section .leave-space div.member a:hover {
+  color: #000000;
+  background: #d8000033;
+  text-decoration: none;
+}
+
+body.ng-scope #boardMembersModal .member-section .leave-space div.member a:active,
+body.ng-scope #boardMembersModal .member-section .leave-space div.member a:focus {
+  text-decoration: none;
+}
+
+.navbar-default {
+  background-color: #3A61C5;
+  border:0px;
+  border-radius: 0px;
+  min-height: 20px;
+  height: 40px;
+  letter-spacing: 0.1px;
+  margin: 0;
+  font: 15px Roboto, serif;
+}
+
+.navbar-default #menu-toggle {
+  border: 5px;
+  margin-top: 4px;
+  background-color: #ffffff00;
+  color: #ffffff;
+}
+
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+  padding: 10px 15px;
+  padding-bottom: 0px;
+  height: auto;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #ecf0f1;
+  padding: 10px 15px;
+  padding-bottom: 0px;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  color: #ffffff;
+  background-color: #008eea;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+  color: #ffffff;
+  background-color: #008eea;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #008eea;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #008eea;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+div.ng-scope {
+  height: calc(100vh - 40px);
+}
+
+div.ng-scope * {
+  height: initial;
+}
+
+div.ng-scope #sidebar-wrapper {
+  border-color: #c2c2c2;
+  border-left: 2px solid;
+  margin-right: -250px;
+  right: 0;
+  width: 250px;
+  background: #ffffff;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  -moz-transition: all 0.5s ease-in 0s;
+  -ms-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  border: 2px inset #7f8c8d;"
+}
+
+div.ng-scope #sidebar-wrapper.active {
+  right: 250px;
+  width: 250px;
+  transition: all 0.5s ease-out 0s;
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  -ms-transition: all 0.5s ease-out 0s;
+  -o-transition: all 0.5s ease-out 0s;
+}
+
+div.ng-scope .sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.ng-scope .sidebar-nav li {
+  line-height: 50px;
+  text-indent: 20px;
+}
+
+div.ng-scope .sidebar-nav li a {
+  color: #000000;
+  display: block;
+  text-decoration: none;
+}
+
+div.ng-scope .sidebar-nav li a:hover {
+  color: #000000;
+  background: #27272733;
+  text-decoration: none;
+}
+
+div.ng-scope .sidebar-nav li a:active,
+div.ng-scope .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+div.ng-scope .sidebar-nav>.sidebar-brand {
+  height: 55px;
+  line-height: 55px;
+  font-size: 18px;
+}
+
+div.ng-scope .sidebar-nav>.sidebar-brand a {
+  color: #000000;
+}
+
+div.ng-scope .sidebar-nav>.sidebar-brand a:hover {
+  color: #000000;
+  background: none;
+}
+
+div.ng-scope .toggle {
+  margin: 5px 5px 0 0;
+}
+
+div.ng-scope div#card-modal input {
+  font-size: 20px;
+  width: 100%;
+  border: 2px solid #009aff;
+  border-radius: 5px;
+  font-style: oblique;
+}
+
+div.ng-scope div#card-modal div.modal-body pre {
+  font-family: Roboto, serif;
+  border: 0px;
+  background-color: #ffffff00;
+}
+
+div.ng-scope div#card-modal div.modal-body .leave-space {
+  margin-left: 26px;
+}
+
+div.ng-scope div#card-modal div.modal-body div.edit-multiline-btn {
+  width: 100%;
+}
+
+div.ng-scope div#card-modal div.modal-body div.edit-multiline-btn textarea {
+  resize: vertical;
+  border: 2px solid #009aff;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+div.ng-scope div#card-modal div.modal-body div.edit-multiline-btn .btn {
+  width: auto;
+}
+
+div.ng-scope div#card-modal div.modal-body .description-title {
+  font-size: 20px;
+}
+
+div.ng-scope div#card-modal div.modal-body .body {
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+div.ng-scope div#card-modal div.modal-body .body-empty {
+  background-color: #a7b9da;
+  border-radius: 5px;
+  color: #3a3a3a;
+}
+
+div.ng-scope div#card-modal div.modal-body .members-section {
+  margin-bottom: 20px;
+}
+
+div.ng-scope div#card-modal div.modal-body .members-section .member-popover label {
+  padding-left: 5px;
+}
+
+div.ng-scope div#card-modal div.modal-body .members-section .member-popover a {
+  padding: 5px;
+  border-radius: 3px;
+  color: #535358;
+  display: block;
+  text-decoration: none;
+}
+
+div.ng-scope div#card-modal div.modal-body .members-section .member-popover a:hover {
+  color: #000000;
+  background: #a5a5a533;
+  text-decoration: none;
+}
+
+div.ng-scope div#card-modal div.modal-body .members-title {
+  font-size: 15px;
+  color: #404958;
+  margin-bottom: 5px;
+}
+
+div.ng-scope div#card-modal div.modal-body .member {
+  border: 0px;
+  border-radius: 200px;
+  background-color: #7893c5;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 15px;
+  padding: 8px;
+  margin-right: 5px;
+  margin-top: 8px;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment-section {
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 0px;
+  color: black;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment {
+  background-color: #a7b9da;
+  margin-bottom: 20px;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well {
+  width: 100%;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well textarea {
+  resize: vertical;
+  border: 2px solid #009aff;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well .btn {
+  width: auto;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment .well {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #a7b9da;
+  margin-bottom: 3px;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment a {
+  color: #646464;
+}
+
+div.ng-scope div#card-modal div.modal-body .comment a:hover {
+  color: #242424;
+}
+
+div.ng-scope div#card-modal div.modal-body .new-comment {
+  width: 100%;
+  color: #5c5c5c;
+}
+
+div.ng-scope div#card-modal div.modal-body .new-comment textarea {
+  resize: vertical;
+  border: 0px;
+  width: 100%;
+}
+
+div.ng-scope div#lists-view {
+  height: calc(100vh - 40px);
+  
+}
+
+div.ng-scope div#lists-view * {
+  height: important;
+}
+
+div.ng-scope div#lists-view [dnd-list].list-dropzone .dndPlaceholder {
+  margin-top: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: #25252550;
+  border-radius: 2px;
+  display: block;
+  width: 184px;
+  min-height: 150px;
+  margin-bottom: 10px;
+  
+}
+
+div.ng-scope div#lists-view [dnd-list].list-dropzone .dndDraggingSource {
+  display: none;
+}
+
+div.ng-scope div#lists-view .list-section {
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  height: 100%;
+  
+}
+
+div.ng-scope div#lists-view .list-section .current-lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.ng-scope div#lists-view .list {
+  min-width: 200px;
+  width: 200px;
+  border-top: 0px;
+  vertical-align: top;
+  padding: 8px;  
+}
+
+div.ng-scope div#lists-view .list [dnd-list].card-dropzone {
+  min-height: 10px;
+}
+
+div.ng-scope div#lists-view .list [dnd-list].card-dropzone .dndPlaceholder {
+  margin-left: 0px;
+  margin-top: 0px;
+  background-color: #70707023;
+  border-radius: 2px;
+  display: block;
+  width: 100%;
+  min-height: calc(20px + (9px * 2));
+  margin-bottom: 10px;
+}
+
+div.ng-scope div#lists-view .list [dnd-list].card-dropzone .dndDraggingSource {
+  display: none;
+}
+
+div.ng-scope div#lists-view .list input {
+  width: 100%;
+  border: 2px solid #009aff;
+  border-radius: 5px;
+  font-style: oblique;
+  
+}
+
+div.ng-scope div#lists-view .list .new-list {
+  background-color: #E8ECF2;
+  border: 0px;
+  border-radius: 5px;
+  color: #5c5c5c;
+  font-weight: bold;
+  width: 100%;
+  box-shadow: 3px 3px 1px #34495e;
+  border: 1px inset #7f8c8d;
+}
+
+div.ng-scope div#lists-view .list .new-list:hover {
+  background-color: #7893c5;
+}
+
+div.ng-scope div#lists-view .list .card {
+  margin-bottom: 10px;
+}
+
+div.ng-scope div#lists-view .list .card:hover {
+  background-color: #7893c5;
+}
+
+div.ng-scope div#lists-view .list .new-card {
+  color: #5c5c5c;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+div.ng-scope div#lists-view .list .new-card:hover {
+  background-color: #7893c5;
+}
+
+div.ng-scope div#boards-view div.well-lg {
+  font: Roboto, monospace;
+  color: #ecf0f1;
+  font-weight: 900;
+  background-color: black;
+  border-radius: 2px;
+  padding-left: 8px;
+  padding-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 85px;
+}
+
+div.ng-scope div#boards-view div.well-lg p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+div.ng-scope div#boards-view div.col-md-8 {
+  padding-left: 0px;
+}
+
+div.ng-scope div#boards-view div.col-md-3 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color:#ffffff;
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #ffffff;
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+    color: #ffffff;
+    background-color: #008eea;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

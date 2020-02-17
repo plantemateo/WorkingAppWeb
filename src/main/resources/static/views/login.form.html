@@ -1,0 +1,32 @@
+<div class="loginFondo" style="border:3px inset #7f8c8d;">
+	<div class="modal-header">
+		<h3 align="center" class="modal-title" style="font-family: 'Trebuchet MS'">{{title}}</h3>
+	</div>
+	<form class="form-horizontal">
+		<fieldset>
+			<div class="modal-body">
+				
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="Usuario" ng-model="user.name" required
+							autofocus style="border:1px inset #7f8c8d;">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-8">
+						<input type="password" class="form-control" placeholder="Contraseña" ng-model="user.password"
+							required style="border:1px inset #7f8c8d;">
+					</div>
+				</div>
+				<a style="display: block; width: 100%; text-align: center;" ng-click="openRegistration()">Crear una
+					cuenta</a>
+			</div>
+			<div class="modal-footer">
+				<button style="box-shadow: 2px 2px 1px #34495e;" class="btn btn-primary" type="submit" ng-click="login()">Ingresar</button>
+			</div>
+		</fieldset>
+	</form>
+</div>

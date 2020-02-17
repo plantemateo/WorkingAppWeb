@@ -1,0 +1,110 @@
+<div style="border: 3px inset #7f8c8d;">
+<div class="modal-header" >
+	<button style="size: 10px" type="button" class="close" ng-click="cancelar()">&times;</button>
+	<h3 class="modal-title" align="center" style="font-style: italic;">Configuracion del perfil</h3>
+</div>
+<form class="form-horizontal" name="formUser">
+	<fieldset>
+		<div class="modal-body">
+			<div class="form-group">
+				<label class="col-md-4 control-label">Usuario:</label>
+				<div class="col-md-8">
+					<input type="text" name="inputUsername" class="form-control;input" ng-model="modifiUser.username"
+						ng-model-options="{ debounce: 500 }" minlength="3" maxlength="25" pattern="^\S*$" required
+						autofocus placeholder="{{loginData.username}}">
+					<!-- Errores -->
+					<span style="color:red" ng-show="formUser.inputUsername.$dirty && formUser.inputUsername.$invalid">
+						<span ng-show="formUser.inputUsername.$error.required">Debe ingresar un nombre de usuario distinto para guardar.</span>
+						<span
+							ng-show="formUser.inputUsername.$error.minlength && !formUser.inputUsername.$error.required">El
+							nombre de usuario debe tener por lo menos 3 caracteres.</span>
+						<span ng-show="formUser.inputUsername.$error.pattern">El nombre de usuario no puede contener
+							espacios.</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label">E-Mail:</label>
+				<div class="col-md-8">
+					<input type="email" name="inputMail" class="form-control;input" style="font-size: 15px;" placeholder="{{loginData.email}}"
+						ng-model="modifiUser.email" ng-model-options="{ debounce: 500 }" required
+						>
+					<!-- Errores -->
+					<span style="color:red" ng-show="formUser.inputMail.$dirty && formUser.inputMail.$invalid">
+						<span ng-show="formUser.inputMail.$error.required">El mail es obligatorio.</span>
+						<span ng-show="formUser.inputMail.$error.email">Ingrese un mail valido.</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label">Clave:</label>
+				<div class="col-md-8">
+					<input type="password" name="inputPassword" class="form-control;input" style="font-size: 15px;" placeholder="Ingrese su nueva contraseña"
+						ng-model="modifiUser.password" ng-model-options="{ debounce: 500 }" minlength="8" maxlength="16"
+						pattern="^\S*$" required>
+					<!-- Errores -->
+					<span style="color:red" ng-show="formUser.inputPassword.$dirty && formUser.inputPassword.$invalid">
+						<span ng-show="formUser.inputPassword.$error.required">La contraseña es obligatoria.</span>
+						<span
+							ng-show="formUser.inputPassword.$error.minlength && !formUser.inputPassword.$error.required">La
+							contraseña debe tener por lo menos 8 caracteres.</span>
+						<span
+							ng-show="formUser.inputPassword.$error.pattern && !formUser.inputPassword.$error.required">La
+							contraseña no puede contener
+							espacios.</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label">Nombre:</label>
+				<div class="col-md-8">
+					<input type="text" name="inputNombre" class="form-control;input"  style="font-size: 15px;" placeholder="{{loginData.firstname}}"
+						ng-model="modifiUser.firstName" ng-model-options="{ debounce: 500 }" minlength="2" maxlength="25"
+						pattern="^[a-zA-Z]+$" required>
+					<!-- Errores -->
+					<span style="color:red" ng-show="formUser.inputNombre.$dirty && formUser.inputNombre.$invalid">
+						<span ng-show="formUser.inputNombre.$error.required">El nombre es obligatorio.</span>
+						<span
+							ng-show="formUser.inputNombre.$error.minlength && !formUser.inputNombre.$error.required">El
+							nombre debe tener por lo menos 2 caracteres.</span>
+						<span ng-show="formUser.inputNombre.$error.pattern && !formUser.inputNombre.$error.minlength">El
+							nombre no puede contener
+							espacios o numeros.</span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label">Apellido:</label>
+				<div class="col-md-8">
+					<input type="text" name="inputApellido" class="form-control;input" style="font-size: 15px;" placeholder="{{loginData.lastname}}"
+						ng-model="modifiUser.lastName" ng-model-options="{ debounce: 500 }" minlength="2" maxlength="25"
+						pattern="^[a-zA-Z]+$" required>
+					<!-- Errores -->
+					<span style="color:red" ng-show="formUser.inputApellido.$dirty && formUser.inputApellido.$invalid">
+						<span ng-show="formUser.inputApellido.$error.required">El apellido es obligatorio.</span>
+						<span
+							ng-show="formUser.inputApellido.$error.minlength && !formUser.inputApellido.$error.required">El
+							apellido debe tener por lo menos 2 caracteres.</span>
+						<span
+							ng-show="formUser.inputApellido.$error.pattern && !formUser.inputApellido.$error.minlength">El
+							apellido no puede contener
+							espacios o numeros.</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<img align="left" height="40" width="40" src="vendor/images/logopag.png" alt="logo">
+			<span style="font-style: italic;color: #3A61C5;">Working App</span>
+			<button style="box-shadow: 2px 2px 1px #34495e;" type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+			<button style="box-shadow: 2px 2px 1px #34495e;" class="btn btn-primary" type="submit"
+				ng-disabled="formUser.inputNombre.$invalid || formUser.inputApellido.$invalid || formUser.inputMail.$invalid || formUser.inputUsername.$invalid || formUser.inputPassword.$invalid"
+				ng-click="modPerfil()">Guardar</button>		
+		</div>
+		<div class="alert alert-warning alert-dismissable">
+ 		 <button type="button" class="close" data-dismiss="alert">&times;</button>
+  		<strong>Atencion!</strong> Tiene que modificar los datos de usuario que ya figuran para poder actualizar su perfil.
+		</div>
+	</fieldset>
+</form>
+</div>

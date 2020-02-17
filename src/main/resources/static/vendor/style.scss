@@ -1,0 +1,505 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+
+// # Color stuff
+// ## Navbar
+$bgDefault: #009aff;
+$bgHighlight: #008eea;
+$colDefault: #ecf0f1;
+$colHighlight: #ffffff;
+
+// # Font stuff
+// ## Navbar
+$font-stack: Roboto, serif;
+$nav-padding: 10px 15px;
+$weightHighlight: 600;
+
+// # Extras
+$dropDown: false;
+$heightNav: 40px;
+$avaiableSpace: calc(100vh - #{$heightNav});
+
+*.center-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+body.ng-scope {
+  div.modal-backdrop {
+    height: auto;
+  }
+  div.modal {
+    height: auto;
+  }
+  #boardMembersModal {
+    fieldset {
+      border: 0px;
+    }
+    .member-section {
+      margin-top: 20px;
+      .leave-space {
+        margin-left: 25px;
+        div.member {
+          margin-bottom: 5px;
+          width: max-content;
+          a {
+            padding: 6px;
+            border-radius: 4px;
+            background-color: #77777733;
+            padding: 5px;
+            color: #000000;
+            display: block;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #000000;
+            background: #d8000033;
+            text-decoration: none;
+          }
+          a:active,
+          a:focus {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-default {
+  background-color: $bgDefault;
+  border: 0px;
+  border-radius: 0px;
+  min-height: 20px;
+  height: $heightNav;
+  letter-spacing: 0.1px;
+  margin: 0;
+  font: 15px $font-stack;
+  #menu-toggle {
+    border: 0px;
+    margin-top: 4px;
+    background-color: #ffffff00;
+    color: #ffffff;
+  }
+  .navbar-brand {
+    color: $colDefault;
+    padding: $nav-padding;
+    padding-bottom: 0px;
+    height: auto;
+    font-weight: 500;
+    font-size: 20px;
+    &:hover,
+    &:focus {
+      font-weight: $weightHighlight;
+      color: $colHighlight;
+    }
+  }
+  .navbar-text {
+    color: $colDefault;
+  }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        padding: $nav-padding;
+        padding-bottom: 0px;
+        &:hover,
+        &:focus {
+          font-weight: $weightHighlight;
+          color: $colHighlight;
+        }
+      }
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $bgDefault;
+          > li {
+            > a {
+              color: $colDefault;
+              &:hover,
+              &:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+              }
+            }
+            &.divider {
+              background-color: $bgHighlight;
+            }
+          }
+        }
+      }
+    }
+    @if $dropDown {
+      .open .dropdown-menu > .active {
+        > a,
+        > a:hover,
+        > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight;
+        }
+      }
+    }
+    > .active {
+      > a,
+      > a:hover,
+      > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+    > .open {
+      > a,
+      > a:hover,
+      > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover,
+    &:focus {
+      background-color: $bgHighlight;
+    }
+    .icon-bar {
+      background-color: $colDefault;
+    }
+  }
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault;
+  }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight;
+    }
+  }
+}
+div.ng-scope {
+  height: $avaiableSpace;
+  * {
+    height: initial;
+  }
+  $heightBoard: 85px;
+  #sidebar-wrapper {
+    border-color: #000000;
+    border-left: 2px solid black;
+    margin-right: -250px;
+    right: 0;
+    width: 250px;
+    background: #ffffff;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.5s ease-in 0s;
+    -webkit-transition: all 0.5s ease-in 0s;
+    -moz-transition: all 0.5s ease-in 0s;
+    -ms-transition: all 0.5s ease-in 0s;
+    -o-transition: all 0.5s ease-in 0s;
+  }
+  #sidebar-wrapper.active {
+    right: 250px;
+    width: 250px;
+    transition: all 0.5s ease-out 0s;
+    -webkit-transition: all 0.5s ease-out 0s;
+    -moz-transition: all 0.5s ease-out 0s;
+    -ms-transition: all 0.5s ease-out 0s;
+    -o-transition: all 0.5s ease-out 0s;
+  }
+  .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      line-height: 50px;
+      text-indent: 20px;
+      a {
+        color: #000000;
+        display: block;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #000000;
+        background: #27272733;
+        text-decoration: none;
+      }
+      a:active,
+      a:focus {
+        text-decoration: none;
+      }
+    }
+    > .sidebar-brand {
+      height: 55px;
+      line-height: 55px;
+      font-size: 18px;
+      a {
+        color: #000000;
+      }
+      a:hover {
+        color: #000000;
+        background: none;
+      }
+    }
+  }
+  .toggle {
+    margin: 5px 5px 0 0;
+  }
+  div#card-modal {
+    $icon-size: 20px;
+    input {
+      font-size: $icon-size;
+      width: 100%;
+      border: 2px solid#009aff;
+      border-radius: 5px;
+    }
+    div.modal-body {
+      pre {
+        font-family: $font-stack;
+        border: 0px;
+        background-color: #ffffff00;
+      }
+      .leave-space {
+        margin-left: $icon-size + 6px;
+      }
+      div.edit-multiline-btn {
+        width: 100%;
+        textarea {
+          resize: vertical;
+          border: 2px solid #009aff;
+          border-radius: 4px;
+          width: 100%;
+          margin-bottom: 2px;
+        }
+        .btn {
+          width: auto;
+        }
+      }
+      .description-title {
+        font-size: $icon-size;
+      }
+      .body {
+        font-size: 15px;
+        padding: 5px;
+        margin-bottom: 30px;
+      }
+      .body-empty {
+        background-color: #e6e6e6c9;
+        border-radius: 5px;
+        color: #3a3a3a;
+      }
+      .members-section {
+        margin-bottom: 20px;
+        .member-popover {
+          label {
+            padding-left: 5px;
+          }
+          a {
+            padding: 5px;
+            border-radius: 3px;
+            color: #535358;
+            display: block;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #000000;
+            background: #a5a5a533;
+            text-decoration: none;
+          }
+        }
+      }
+      .members-title {
+        font-size: 15px;
+        color: #404958;
+        margin-bottom: 5px;
+      }
+      .member {
+        border: 0px;
+        border-radius: 200px;
+        background-color: #f4f4f4;
+        width: max-content;
+        font-size: 15px;
+        padding: 8px;
+        margin-right: 5px;
+        margin-top: 8px;
+      }
+      .comment-section {
+        font-size: 15px;
+        padding: 5px;
+        margin-bottom: 0px;
+      }
+      .comment {
+        background-color: white;
+        margin-bottom: 20px;
+        .edit-comment.well {
+          width: 100%;
+          textarea {
+            resize: vertical;
+            border: 2px solid #009aff;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 2px;
+          }
+          .btn {
+            width: auto;
+          }
+        }
+        .well {
+          width: max-content;
+          background-color: white;
+          margin-bottom: 3px;
+        }
+        a {
+          color: #646464;
+        }
+        a:hover {
+          color: #242424;
+        }
+      }
+      .new-comment {
+        width: 100%;
+        color: #5c5c5c;
+        textarea {
+          resize: vertical;
+          border: 0px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  div#lists-view {
+    height: $avaiableSpace;
+    * {
+      height: !important;
+    }
+    [dnd-list].list-dropzone {
+      .dndPlaceholder {
+        margin-top: 8px;
+        margin-left: 8px;
+        margin-right: 8px;
+        background-color: #25252550;
+        border-radius: 2px;
+        display: block;
+        width: 184px;
+        min-height: 150px;
+        margin-bottom: 10px;
+      }
+      .dndDraggingSource {
+        display: none;
+      }
+    }
+    .list-section {
+      overflow: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+      .current-lists {
+        display: flex;
+      }
+    }
+    .list {
+      $minCardHeight: 20px;
+      min-width: 200px;
+      width: 200px;
+      border-top: 0px;
+      vertical-align: top;
+      padding: 8px;
+      [dnd-list].card-dropzone {
+        min-height: 10px;
+        .dndPlaceholder {
+          margin-left: 0px;
+          margin-top: 0px;
+          background-color: #70707023;
+          border-radius: 2px;
+          display: block;
+          width: 100%;
+          min-height: calc(#{$minCardHeight} + (9px * 2));
+          margin-bottom: 10px;
+        }
+        .dndDraggingSource {
+          display: none;
+        }
+      }
+      input {
+        width: 100%;
+        border: 2px solid#009aff;
+        border-radius: 5px;
+      }
+      .new-list {
+        background-color: #dddcdc69;
+        border: 0px;
+        border-radius: 5px;
+        color: #5c5c5c;
+        font-weight: bold;
+        width: 100%;
+      }
+      .new-list:hover {
+        background-color: #f0f0f069;
+      }
+      .card {
+        margin-bottom: 10px;
+      }
+      .card:hover {
+        background-color: #eee;
+      }
+      .new-card {
+        color: #5c5c5c;
+        font-weight: bold;
+        margin-bottom: 0px;
+      }
+      .new-card:hover {
+        background-color: #cececea4;
+      }
+    }
+  }
+  div#boards-view {
+    div.well-lg {
+      font: Roboto, monospace;
+      color: $colDefault;
+      font-weight: 900;
+      background-color: black;
+      border-radius: 2px;
+      padding-left: 8px;
+      padding-top: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: $heightBoard;
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    div.col-md-8 {
+      padding-left: 0px;
+    }
+    div.col-md-3 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover,
+      &:focus {
+        color: $colHighlight;
+      }
+    }
+    > .active {
+      > a,
+      > a:hover,
+      > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+}

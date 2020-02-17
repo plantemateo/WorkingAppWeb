@@ -1,0 +1,12 @@
+<div class="modal-header" style="background-color: #ff0000dc">
+    <button type="button" class="close" ng-click="cancelar()">&times;</button>
+    <h3 class="modal-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Error! {{error}}</h3>
+</div>
+<div class="modal-body">
+    <p><strong>{{message}}</strong></p>
+    <br>
+    <p style="overflow: scroll; max-height: 50vh; text-overflow: ellipsis; white-space: pre;"> {{trace}} </p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="ok()">Ok</button>
+</div>

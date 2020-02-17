@@ -1,0 +1,39 @@
+<div id="boards-view" class="col-md-offset-3">
+    <div>
+    <h3 class="styletext">TABLEROS MARCADOS &#10026</h3>
+    </div>
+    <div class="row ">
+        <div class="col-md-8">
+            <div class="col-md-3" ng-repeat="t in tableros" ng-if="t.marcado">
+                <div class="well well-lg" style="background-color: #{{t.fondo}};box-shadow: 3px 3px 1px #34495e;" ng-click="enterBoard(t)">
+                    <p style="font-size: 18px">
+                        <strong>{{t.titulo}}</strong>
+                    </p>
+                    <i class="fa fa-star" style="font-size: 18px;" ng-click="changeFav(t)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="styletext">TABLEROS &#10070</h3>
+    <div class="row ">
+        <div class="col-md-8">
+            <!-- Tablero -->
+            <div class="col-md-3" ng-repeat="t in tableros" ng-if="!t.marcado">
+                <div class="well well-lg" style="background-color: #{{t.fondo}};box-shadow: 3px 3px 1px #34495e;" ng-click="enterBoard(t)">
+                    <p style="font-size: 18px">
+                        <strong>{{t.titulo}}</strong>
+                    </p>
+                    <i class="fa fa-star-o" style="font-size: 18px;" ng-click="changeFav(t)"></i>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="well well-lg" style="background-color: #A7A7A7;box-shadow: 3px 3px 1px #34495e;" ng-click="createBoard()">
+                    <div class="container">
+                        <i class="fa fa-plus-square" style="font-size: 50px;color: white;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

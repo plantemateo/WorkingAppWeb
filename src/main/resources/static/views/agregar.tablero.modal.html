@@ -1,0 +1,43 @@
+<div style="background-image: url('vendor/images/background.jpg');background-size: contain;border: 3px inset #7f8c8d;" class="modal-content">
+    <div class="modal-header">
+        <button style="color: aliceblue" type="button" class="close" ng-click="cancelar()">&times;</button>
+        <h4 style="color: aliceblue;font-style: italic;text-align: center;font-size: 22px" class="modal-title">{{action}} Tablero</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" role="form" name="formBoard">
+            <!-- Titulo -->
+            <div class="form-group">
+                <label style="color: aliceblue" class="col-sm-3 control-label">Titulo del tablero</label>
+                <div class="col-sm-7">
+                    <input type="text" name="inputTitle" class="form-control" ng-model="tablero.titulo"
+                        ng-model-options="{ debounce: 500 }" required minlength="3" maxlength="25" />
+                    <!-- Errores -->
+                    <span style="color:red" ng-show="formBoard.inputTitle.$dirty && formBoard.inputTitle.$invalid">
+                        <span ng-show="formBoard.inputTitle.$error.required">El titulo es obligatorio.</span>
+                        <span ng-show="formBoard.inputTitle.$error.minlength && !formBoard.inputTitle.$error.required">
+                            El titulo debe tener por lo menos 3 caracteres.</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Color de fondo -->
+            <div class="form-group">
+                <label style="color: aliceblue" class="col-sm-3 control-label">Color de fondo</label>
+                <div class="col-sm-7">
+                    <color-picker name="inputColor" ng-model="tablero.fondo" options="colorOptions" required>
+                    </color-picker>
+                    <!-- Errores -->
+                    <span style="color:red"
+                        ng-show="formBoard.inputColor.$dirty && formBoard.inputColor.$invalid"></span>
+                    <span ng-show="formBoard.inputColor.$error.required">Tiene que elegir un color de fondo.</span>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button  type="button" class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+            <button  type="button" class="btn btn-primary"
+                ng-disabled="formBoard.inputTitle.$invalid || formBoard.inputColor.$invalid"
+                ng-click="guardar()">Añadir</button>
+        </div>
+    </div>
+</div><!-- /.modal-content -->

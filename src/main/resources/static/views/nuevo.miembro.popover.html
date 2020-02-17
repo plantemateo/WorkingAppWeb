@@ -1,0 +1,8 @@
+<div class="member-popover">
+    <div class="member-section">
+        <strong class="center-text">Miembros</strong>
+        <div class="member" style="padding: 0px 5px;" ng-repeat="member in miembrosTablero">
+            <a ng-click="addMember(member)" ng-show="!assigned(member)">{{member.username}}</a>
+        </div>
+    </div>
+</div>
