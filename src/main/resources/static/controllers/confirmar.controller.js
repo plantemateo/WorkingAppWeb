@@ -6,6 +6,8 @@ angular.module('frontend').controller('ModalConfirmarCtrl', function (
 ) {
 	$scope.titulo = titulo;
 	$scope.mensaje = 'Esta seguro/a que desea ' + message + '?';
+	$scope.mensaje2 = 'El usuario ' + message + '!';
+	
 
 	// Returns
 	$scope.elegir = function (eleccion) {
