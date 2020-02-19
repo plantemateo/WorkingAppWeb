@@ -37,7 +37,7 @@
             <!-- Descripcion actual o Placeholder -->
             <div ng-hide="editingCardBody" ng-dblclick="editingCardBody = true">
                 <div ng-hide="tarjeta.cuerpo == ''">
-                    <pre>{{tarjeta.cuerpo}}</pre>
+                    <pre style="background-color: #bdcbe3;color: black;">{{tarjeta.cuerpo}}</pre>
                 </div>
                 <div style="color: black;" ng-show="tarjeta.cuerpo == ''">Añadir una descripción más detallada...</div>
             </div>
@@ -80,8 +80,8 @@
                             {{com.cuerpo}}
                         </div>
                         <span ng-show="com.creadoPor.idUser == currentLoggedUser.idUser">
-                            <a ng-click="editComment(com)"><u>Editar</u></a> - <a
-                                ng-click="deleteComment(com)"><u>Eliminar</u></a>
+                            <a style="color:black;" ng-click="editComment(com)"><u>Editar</u></a> - 
+                            <a style="color:black;" ng-click="deleteComment(com)"><u>Eliminar</u></a>
                         </span>
                     </div>
                     <div ng-show="editingComment(com)" style="width: 100%;">

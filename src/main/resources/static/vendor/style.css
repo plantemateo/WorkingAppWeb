@@ -327,7 +327,7 @@ div.ng-scope div#card-modal div.modal-body .body {
 }
 
 div.ng-scope div#card-modal div.modal-body .body-empty {
-  background-color: #a7b9da;
+  background-color: #bdcbe3;
   border-radius: 5px;
   color: #3a3a3a;
 }
@@ -363,7 +363,7 @@ div.ng-scope div#card-modal div.modal-body .members-title {
 div.ng-scope div#card-modal div.modal-body .member {
   border: 0px;
   border-radius: 200px;
-  background-color: #7893c5;
+  background-color: #bdcbe3;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -381,12 +381,13 @@ div.ng-scope div#card-modal div.modal-body .comment-section {
 }
 
 div.ng-scope div#card-modal div.modal-body .comment {
-  background-color: #a7b9da;
   margin-bottom: 20px;
+  background-color: #bdcbe3;
 }
 
 div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well {
   width: 100%;
+  
 }
 
 div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well textarea {
@@ -395,6 +396,7 @@ div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well textarea 
   border-radius: 4px;
   width: 100%;
   margin-bottom: 2px;
+  
 }
 
 div.ng-scope div#card-modal div.modal-body .comment .edit-comment.well .btn {
@@ -405,7 +407,6 @@ div.ng-scope div#card-modal div.modal-body .comment .well {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  background-color: #a7b9da;
   margin-bottom: 3px;
 }
 

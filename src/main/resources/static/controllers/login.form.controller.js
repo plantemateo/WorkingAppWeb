@@ -28,17 +28,18 @@ angular.module('frontend')
 								$rootScope.currentLoggedUser = resp.data[0];
 							},
 							function (err) {
-								$rootScope.openErrorModal(err);
+								$rootScope.openErrorModal(err);							
 							}
 						);
 						$uibModalInstance.dismiss(true);
-					} else {
+					} else {						
 						delete $localStorage.userdata;
 						$localStorage.logged = false;
+						
 					}
 				},
 				function (respErr) {
-					$log.log(respErr);				
+					$log.log(respErr);
 				}
 			);
 		};
