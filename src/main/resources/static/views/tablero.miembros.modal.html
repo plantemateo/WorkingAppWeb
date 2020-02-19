@@ -12,12 +12,13 @@
             </p>
             <label class="col-md-2 control-label">Usuario</label>
             <div class="col-md-10">
-                <input style="width: 350px" type="text" name="inputUsername" class="form-control" placeholder="Nombre de usuario"
+           
+                <input style="width: 350px" type="text" name="inputUsername" class="form-control" placeholder="Agregar usuario &#43"
                     ng-model="username" ng-model-options="{ debounce: 500 }" minlength="3" maxlength="25"
-                    pattern="^\S*$" autofocus>
-              <button style="box-shadow: 2px 2px 1px #34495e;" type="button" class="btn btn-sm btn-primary pull-right" ng-click="search()">Buscar</button>
-                   
-                  
+                   pattern="^\S*$" autofocus>
+                   <span style="color: orange;font-size: 12px" >Para agregar al nuevo miembro, presione enter luego de ingresar el nombre!</span>
+      
+                
                 <!-- Errores -->
                 <span style="color:red" ng-show="formUser.inputUsername.$dirty && formUser.inputUsername.$invalid">
                     <span

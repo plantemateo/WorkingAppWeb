@@ -28,7 +28,7 @@
             <div ng-repeat="list in listas" class="col-md-2 list" dnd-draggable="list" dnd-type="'list'"
                 dnd-effect-allowed="move" dnd-moved="onMovedList($index)">
                 <div class="well well-sm" style="background-color: #E8ECF2;box-shadow: 3px 3px 1px #34495e;border: 1px inset #7f8c8d;">
-                    <label ng-hide="editingList(list)" ng-dblclick="editList(list)" style="width: 100%;">
+                    <label ng-hide="editingList(list)" ng-click="editList(list)" style="width: 100%;">
                         <strong style="font-style:oblique;">{{list.titulo}}</strong>
                         <div class="btn btn-xs btn-default pull-right" ng-click="deleteList(list)"><i
                                 class="fa fa-trash"></i></div>
