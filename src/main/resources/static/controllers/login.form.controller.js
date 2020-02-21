@@ -11,9 +11,11 @@ angular.module('frontend')
 		coreService,
 		userService
 	) {
+		
 		$scope.title = 'INGRESO';
 		$scope.user = { name: '', password: '' };
 		$location.url('/main');
+		
 		$scope.login = function () {
 			coreService.login($scope.user).then(
 				function (resp) {
@@ -35,14 +37,37 @@ angular.module('frontend')
 					} else {						
 						delete $localStorage.userdata;
 						$localStorage.logged = false;
-						
 					}
 				},
 				function (respErr) {
 					$log.log(respErr);
+					$scope.errorLogin();
 				}
 			);
 		};
+		
+		$scope.errorLogin = function() {
+			let modalInstance = $uibModal.open({
+				templateUrl: 'views/confirmarMsj2.form.html',
+				controller: 'ModalConfirmarCtrl',
+				resolve: {
+					message : function() {
+						return 'Los datos ingresados no son validos, por favor intentente nuevamente!';
+					},
+					titulo : function() {
+						return 'Datos de usuario incorrectos';
+					}
+				}				
+			});
+				modalInstance.result.then(function(renew) {
+					if (renew) {
+						$rootScope.loginOpen = false;
+						$rootScope.openLoginForm();
+						$uibModalInstance.dismiss(true);
+					}
+				});
+			};
+		
 		$scope.openRegistration = function () {
 			$uibModal.open({
 				templateUrl: 'views/registration.form.html',

@@ -23,15 +23,11 @@ angular.module('frontend').controller('ModalBoardMembersCtrl', function ($scope,
                     	
                     },
                     function (err) {
-                        if (err.status == 404) {
-                            $scope.found = false;
-                        } else {
-                            $rootScope.openErrorModal(err);
-                            
-                        }
+                    	$rootScope.openErrorModal(err);
                     }
                 );
             }
+            $scope.found = false;
         }
     };
     $scope.eliminateMember = function (member) {
