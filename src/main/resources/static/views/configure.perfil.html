@@ -1,4 +1,4 @@
-<div style="border: 3px inset #7f8c8d;">
+<div class="registerFondo" style="border: 3px inset #7f8c8d;">
 <div class="modal-header" >
 	<button style="size: 10px" type="button" class="close" ng-click="cancelar()">&times;</button>
 	<h3 class="modal-title" align="center" style="font-style: italic;">Configuracion del perfil</h3>
@@ -7,26 +7,15 @@
 	<fieldset>
 		<div class="modal-body">
 			<div class="form-group">
-				<label class="col-md-4 control-label">Usuario:</label>
+				<label class="col-md-4 control-label">Usuario</label>
 				<div class="col-md-8">
-					<input type="text" name="inputUsername" class="form-control;input" ng-model="editUser.username"
-						ng-model-options="{ debounce: 500 }" minlength="3" maxlength="25" pattern="^\S*$" required
-						autofocus placeholder="{{loginData.username}}">
-					<!-- Errores -->
-					<span style="color:red" ng-show="formUser.inputUsername.$dirty && formUser.inputUsername.$invalid">
-						<span ng-show="formUser.inputUsername.$error.required">Debe ingresar un nombre de usuario distinto para guardar.</span>
-						<span
-							ng-show="formUser.inputUsername.$error.minlength && !formUser.inputUsername.$error.required">El
-							nombre de usuario debe tener por lo menos 3 caracteres.</span>
-						<span ng-show="formUser.inputUsername.$error.pattern">El nombre de usuario no puede contener
-							espacios.</span>
-					</span>
+					<h4 class="col-md-12" style="color: #3A61C5;text-shadow:0.5px 0.5px 1px #3A61C5;font-size: 20px"><u>{{loginData.username}}</u></h4>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-4 control-label">E-Mail:</label>
 				<div class="col-md-8">
-					<input type="email" name="inputMail" class="form-control;input" style="font-size: 15px;" placeholder="{{loginData.email}}"
+					<input type="email" name="inputMail" class="form-control" style="font-size: 15px;" placeholder="{{editUser.email}}"
 						ng-model="editUser.email" ng-model-options="{ debounce: 500 }" required
 						>
 					<!-- Errores -->
@@ -39,7 +28,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">Clave:</label>
 				<div class="col-md-8">
-					<input type="password" name="inputPassword" class="form-control;input" style="font-size: 15px;" placeholder="Ingrese su nueva contraseña"
+					<input type="password" name="inputPassword" class="form-control" style="font-size: 15px;" placeholder="Ingrese su nueva contraseña"
 						ng-model="editUser.password" ng-model-options="{ debounce: 500 }" minlength="8" maxlength="16"
 						pattern="^\S*$" required>
 					<!-- Errores -->
@@ -58,7 +47,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">Nombre:</label>
 				<div class="col-md-8">
-					<input type="text" name="inputNombre" class="form-control;input"  style="font-size: 15px;" placeholder="{{loginData.firstname}}"
+					<input type="text" name="inputNombre" class="form-control"  style="font-size: 15px;" placeholder="{{editUser.firstName}}"
 						ng-model="editUser.firstName" ng-model-options="{ debounce: 500 }" minlength="2" maxlength="25"
 						pattern="^[a-zA-Z]+$" required>
 					<!-- Errores -->
@@ -76,7 +65,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">Apellido:</label>
 				<div class="col-md-8">
-					<input type="text" name="inputApellido" class="form-control;input" style="font-size: 15px;" placeholder="{{loginData.lastname}}"
+					<input type="text" name="inputApellido" class="form-control" style="font-size: 15px;" placeholder="{{editUser.lastname}}"
 						ng-model="editUser.lastName" ng-model-options="{ debounce: 500 }" minlength="2" maxlength="25"
 						pattern="^[a-zA-Z]+$" required>
 					<!-- Errores -->
@@ -98,12 +87,12 @@
 			<span style="font-style: italic;color: #3A61C5;">Working App</span>
 			<button style="box-shadow: 2px 2px 1px #34495e;" type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
 			<button style="box-shadow: 2px 2px 1px #34495e;" class="btn btn-primary" type="submit"
-				ng-disabled="formUser.inputNombre.$invalid || formUser.inputApellido.$invalid || formUser.inputMail.$invalid || formUser.inputUsername.$invalid || formUser.inputPassword.$invalid"
+				ng-disabled="formUser.inputPassword.$invalid" 
 				ng-click="modPerfil()">Guardar</button>		
 		</div>
 		<div class="alert alert-warning alert-dismissable">
  		 <button type="button" class="close" data-dismiss="alert">&times;</button>
-  		<strong>Atencion!</strong> Tiene que modificar los datos de usuario que ya figuran para poder actualizar su perfil.
+  		<strong>Atencion!</strong> Debe actualizar la contraseña para poder modificar los datos de su perfil.
 		</div>
 	</fieldset>
 </form>

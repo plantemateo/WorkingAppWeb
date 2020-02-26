@@ -15,6 +15,7 @@ input::placeholder {
   color: black;
   font-size: 15px;
 }
+
 input{
 	width: 300px;
   	border: 1px inset #7f8c8d;

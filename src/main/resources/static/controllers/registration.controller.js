@@ -12,7 +12,7 @@ angular.module('frontend').controller('ModalRegistrationCtrl',
 
 			$scope.register = function() {
 				let modalInstance = $uibModal.open({
-					templateUrl : 'views/confirmarMsj.form.html',
+					templateUrl : 'views/confirmarMsj1.form.html',
 					controller : 'ModalConfirmarCtrl',
 					resolve : {
 						message : function() {

@@ -1,11 +1,14 @@
 angular.module('frontend').controller('ConfigureController',
 		function($scope, userService, $rootScope, $uibModalInstance, $uibModal) {
 				
-		$scope.editUser	= $rootScope.currentLoggedUser = {
-					firstName : '',
-					lastName : '',
-					email : '',
-					username : '',
+		$scope.user = $rootScope.currentLoggedUser;
+		
+		$scope.editUser	= {	
+					idUser : $scope.user.idUser,
+					username : $scope.user.username,
+					firstName : $scope.user.firstName,
+					lastName : $scope.user.lastName,
+					email : $scope.user.email,
 					password : ''
 			};
 		
@@ -25,8 +28,8 @@ angular.module('frontend').controller('ConfigureController',
 			modalInstance.result.then(function(eleccion) {
 				if (eleccion) {
 					userService.actualizar($scope.editUser).then(function() {
-						$uibModalInstance.dismiss(true);
-						$rootScope.logout();	
+								$uibModalInstance.dismiss(true);
+								$rootScope.logout();		
 					}, function(err) {
 						$rootScope.openErrorModal(err);
 						$uibModalInstance.dismiss('cancel');

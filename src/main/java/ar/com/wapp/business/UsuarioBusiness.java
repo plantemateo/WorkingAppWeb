@@ -62,11 +62,11 @@ public class UsuarioBusiness implements IUsuarioBusiness {
 	public Usuario update(Usuario usuario) throws BusinessException {
 
 		try {
-			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 			usuario.setAccountNonExpired(true);
 			usuario.setAccountNonLocked(true);
 			usuario.setCredentialsNonExpired(true);
 			usuario.setEnabled(true);
+			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 			return usuarioDAO.save(usuario);
 		} catch (Exception e) {
 			throw new BusinessException(e);
