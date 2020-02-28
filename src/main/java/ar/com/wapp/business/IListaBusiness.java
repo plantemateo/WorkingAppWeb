@@ -4,9 +4,8 @@ import java.util.List;
 
 import ar.com.wapp.model.Lista;
 
-
-
 public interface IListaBusiness {
+	
 	public List<Lista> list(int idTablero) throws BusinessException;
 
     public Lista load(int id) throws BusinessException, NotFoundException;

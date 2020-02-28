@@ -85,10 +85,12 @@
 		<div class="modal-footer">
 			<img align="left" height="40" width="40" src="vendor/images/logopag.png" alt="logo">
 			<span style="font-style: italic;color: #3A61C5;">Working App</span>
+			<button style="box-shadow: 2px 2px 1px #34495e;" type="button" class="btn btn-danger" ng-click="deleteAccount()">Eliminar mi cuenta</button>
 			<button style="box-shadow: 2px 2px 1px #34495e;" type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
 			<button style="box-shadow: 2px 2px 1px #34495e;" class="btn btn-primary" type="submit"
 				ng-disabled="formUser.inputPassword.$invalid" 
-				ng-click="modPerfil()">Guardar</button>		
+				ng-click="modPerfil()">Guardar</button>	
+			
 		</div>
 		<div class="alert alert-warning alert-dismissable">
  		 <button type="button" class="close" data-dismiss="alert">&times;</button>

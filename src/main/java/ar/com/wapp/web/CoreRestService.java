@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ar.com.wapp.DefaultData;
 
 @RestController
-
 @PropertySource({ "classpath:version.properties" })
 public class CoreRestService extends BaseRestService {
 
